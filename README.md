@@ -38,3 +38,41 @@ bot/
 ├── main.py                 # Arquivo principal de inicialização do bot
 ├── requirements.txt        # Dependências do projeto
 └── README.md               # Você está aqui
+
+
+🧩 Requisitos
+Python 3.10+
+
+
+discord.py 2.3+
+
+
+Permissões de administrador para testes
+
+
+Instale com:
+pip install -r requirements.txt
+
+🧠 Como Usar
+Clone o repositório e crie seu ambiente virtual
+
+
+Preencha config.py com:
+
+ TOKEN = "seu-token-aqui"
+GUILD_ID = 1234567890
+link_apelacao = "https://seulink.com"
+
+
+Rode o bot:
+
+ python main.py
+
+
+📌 Observações
+O sistema de mute usa timeout real do Discord, não apenas cargos
+
+A maioria das respostas são efêmeras para manter a interface limpa
+
+O bot possui uma personalidade sarcástica e filosófica, como configurado
+
