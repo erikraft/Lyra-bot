@@ -1,6 +1,6 @@
-id_do_servidor = 1391101840682389524
-CANAL_PAINEL_ID = 1391101841487564833  
-id_cargo_atendente = 1391103327235866736  
-TOKEN = "MTM5MTE5OTIyMjY5MDM1MzE4Mw.GJ27b9.9IF5N3iwwKSeITjIbMsnGYwtbyG2nH7DM3ks28"
-ID_CANAL_LOGS = 1393720007317393469 
-link_apelacao = "https://forms.gle/1a2b3c4d5e6f7g8h9i"
+id_do_servidor = 123456789012345678  # ID fictício do servidor
+CANAL_PAINEL_ID = 234567890123456789  # ID fictício do canal de painel
+id_cargo_atendente = 345678901234567890  # ID fictício do cargo de atendente
+TOKEN = "MTAwMDAwMDAwMDAwMDAwMDAwMA.AAAAAA.AAAAAAAAAAAAAAAAAAAAAAAAAAA"  # Token fictício
+ID_CANAL_LOGS = 456789012345678901  # ID fictício do canal de logs
+link_apelacao = "https://exemplo.com/formulario-apelacao"  # Link fictício
