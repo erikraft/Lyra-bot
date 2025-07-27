@@ -38,7 +38,7 @@ bot/
 ├── main.py                 # Arquivo principal de inicialização do bot
 ├── requirements.txt        # Dependências do projeto
 └── README.md               # Você está aqui
-
+```
 
 🧩 Requisitos
 Python 3.10+
