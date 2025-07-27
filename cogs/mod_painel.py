@@ -3,10 +3,12 @@ from discord.ext import commands
 from discord import app_commands 
 import datetime
 from datetime import timedelta, datetime
-from config import id_do_servidor, ID_CANAL_LOGS
+from config import id_do_servidor, ID_CANAL_LOGS, ID_CANAL_MOD
 from config import link_apelacao
 from datetime import timedelta
 import discord.utils
+
+
 
 
 
@@ -76,6 +78,7 @@ class BanModal(discord.ui.Modal, title="Banir usuário"):
                 pass
 
             canal_logs = self.bot.get_channel(ID_CANAL_LOGS)
+            mod_logs = self.bot.get_channel(ID_CANAL_MOD)
             if canal_logs:
                 embed_log = discord.Embed(
                     title="🔨 Banimento aplicado",
@@ -85,6 +88,8 @@ class BanModal(discord.ui.Modal, title="Banir usuário"):
                 )
                 embed_log.add_field(name="Motivo", value=motivo, inline=False)
                 await canal_logs.send(embed=embed_log)
+                await mod_logs.send(embed=embed_log)
+
 
             embed_resp = discord.Embed(
                 description=f"{self.usuario.mention} foi banido com sucesso.",
