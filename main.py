@@ -80,4 +80,4 @@ async def on_message(message):
 
 if __name__ == "__main__":
     TOKEN = "MTM5MTE5OTIyMjY5MDM1MzE4Mw.GJ27b9.9IF5N3iwwKSeITjIbMsnGYwtbyG2nH7DM3ks28"
-    bot.run(TOKEN)
+    bot.run(TOKEN)    
