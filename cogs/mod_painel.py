@@ -81,7 +81,7 @@ class BanModal(discord.ui.Modal, title="Banir usuário"):
             mod_logs = self.bot.get_channel(ID_CANAL_MOD)
             if canal_logs:
                 embed_log = discord.Embed(
-                    title="🔨 Banimento aplicado",
+                    title="<:IconR_ban:1314237924702945344> Banimento aplicado",
                     description=f"{self.usuario.mention} foi banido por {interaction.user.mention}",
                     color=COR_BAN,
                     timestamp=datetime.utcnow()
@@ -134,7 +134,7 @@ class KickModal(discord.ui.Modal, title="Expulsar usuário"):
             if canal_logs:
                 embed_log = discord.Embed(
                     title="👢 Expulsão aplicada",
-                    description=f"{self.usuario.mention} foi expulso por {interaction.user.mention}",
+                    description=f"{se     lf.usuario.mention} foi expulso por {interaction.user.mention}",
                     color=COR_KICK,
                     timestamp=datetime.utcnow()
                 )
@@ -205,7 +205,7 @@ class MuteModal(discord.ui.Modal, title="Mutar usuário"):
             canal_logs = self.bot.get_channel(ID_CANAL_LOGS)
             if canal_logs:
                 embed_log = discord.Embed(
-                    title="🔇 Timeout aplicado",
+                    title="<:timeoutclock:1399182783145971784> Timeout aplicado",
                     description=f"{self.usuario.mention} foi silenciado por {interaction.user.mention}",
                     color=COR_MUTE,
                     timestamp=datetime.utcnow()
@@ -236,7 +236,7 @@ class Mod(commands.Cog):
     @app_commands.checks.has_permissions(kick_members=True, ban_members=True, manage_roles=True)
     async def abrir_painel_mod(self, interaction: discord.Interaction, usuario: discord.Member):  # <-- ADICIONADO self
         embed = discord.Embed(
-            title="🛠️ Painel de Moderação",
+                title="<:AutoMod1:1221237624795168868> Painel de Moderação 🛠️",
             description=f"Ações disponíveis para moderar {usuario.mention}",
             color=0xffcc00,
             timestamp=datetime.utcnow()
