@@ -7,11 +7,11 @@ from config import CANAL_PAINEL_ID, id_cargo_atendente, id_do_servidor
 class Dropdown(discord.ui.Select):
     def __init__(self):
         options = [
-            discord.SelectOption(value="denuncia", label="Denúncia", emoji="🚨"),
-            discord.SelectOption(value="duvida", label="Dúvida", emoji="❓"),
+            discord.SelectOption(value="denuncia", label="Denúncia", emoji="<:Report:1349813347691921510>"),
+            discord.SelectOption(value="duvida", label="Dúvida", emoji="<:Hummm:1346533331873042464>"),
             discord.SelectOption(value="pagamento", label="Pagamentos", emoji="💰"),
             discord.SelectOption(value="parceria", label="Parcerias", emoji="🤝"),
-            discord.SelectOption(value="atendimento", label="Atendimento Geral", emoji="📨"),
+            discord.SelectOption(value="atendimento", label="Atendimento Geral", emoji="<:Chat:1349813826476048556>"),
         ]
         super().__init__(
             placeholder="Selecione uma opção...",
@@ -24,11 +24,11 @@ class Dropdown(discord.ui.Select):
         tipo = self.values[0]
 
         mensagens = {
-            "denuncia": "🚨 Clique abaixo para abrir um ticket de denúncia. Forneça o máximo de detalhes possíveis e, se puder, provas (prints, IDs, etc).",
-            "duvida": "❓ Clique abaixo para tirar uma dúvida. Seja específico e claro, isso agiliza a resposta.",
+            "denuncia": "<:Report:1349813347691921510> Clique abaixo para abrir um ticket de denúncia. Forneça o máximo de detalhes possíveis e, se puder, provas (prints, IDs, etc).",
+            "duvida": "<:Hummm:1346533331873042464> Clique abaixo para tirar uma dúvida. Seja específico e claro, isso agiliza a resposta.",
             "pagamento": "💰 Clique abaixo para relatar um problema com pagamentos. Explique o ocorrido e aguarde retorno.",
             "parceria": "🤝 Clique abaixo para tratar sobre parcerias. Diga com quem fala, qual a proposta e os dados básicos.",
-            "atendimento": "📨 Clique abaixo para atendimento geral. Detalhe seu problema de forma direta.",
+            "atendimento": "<:Chat:1349813826476048556> Clique abaixo para atendimento geral. Detalhe seu problema de forma direta.",
         }
 
         await interaction.response.defer(
@@ -73,19 +73,19 @@ class CreateTicket(discord.ui.View):
                     return
 
         nomes = {
-            "denuncia": f"🚨 denúncia - {interaction.user.name} ({interaction.user.id})",
-            "duvida": f"❓ dúvida - {interaction.user.name} ({interaction.user.id})",
+            "denuncia": f"<:Report:1349813347691921510> denúncia - {interaction.user.name} ({interaction.user.id})",
+            "duvida": f"<:Hummm:1346533331873042464> dúvida - {interaction.user.name} ({interaction.user.id})",
             "pagamento": f"💰 pagamento - {interaction.user.name} ({interaction.user.id})",
             "parceria": f"🤝 parceria - {interaction.user.name} ({interaction.user.id})",
-            "atendimento": f"📨 atendimento - {interaction.user.name} ({interaction.user.id})",
+            "atendimento": f"<:Chat:1349813826476048556> atendimento - {interaction.user.name} ({interaction.user.id})",
         }
 
         msg_inicial = {
-            "denuncia": "🚨 **|** Ticket de denúncia aberto. Detalhe o ocorrido e forneça provas se possível.",
-            "duvida": "❓ **|** Ticket de dúvida aberto. Pergunte com clareza.",
+            "denuncia": "<:Report:1349813347691921510> **|** Ticket de denúncia aberto. Detalhe o ocorrido e forneça provas se possível.",
+            "duvida": "<:Hummm:1346533331873042464> **|** Ticket de dúvida aberto. Pergunte com clareza.",
             "pagamento": "💰 **|** Ticket de pagamento aberto. Relate o erro ocorrido com o máximo de detalhes.",
             "parceria": "🤝 **|** Ticket de parceria aberto. Apresente sua proposta.",
-            "atendimento": "📨 **|** Ticket geral aberto. Envie as informações necessárias.",
+            "atendimento": "<:Chat:1349813826476048556> **|** Ticket geral aberto. Envie as informações necessárias.",
         }
 
         if ticket:
@@ -126,7 +126,7 @@ class Ticket(commands.Cog):
             description=(
                 "❓ Nessa seção, você pode tirar suas dúvidas ou entrar em contato com a nossa equipe de suporte.\n\n"
                 "🚫 Para evitar problemas, leia as opções com atenção e lembre-se de tentar pedir ajuda nos suportes comunitários antes de abrir um ticket.\n\n"
-                "<:Discord:1144329364377448518>  | Tickets relacionados ao canal 🎮｜Vamos Jogar MINECRAFT??"
+                "<:Discord:1144329364377448518>  | Tickets relacionados ao canal `🎮｜Vamos Jogar MINECRAFT??`"
             ),
             color=discord.Color.blurple()
         )
