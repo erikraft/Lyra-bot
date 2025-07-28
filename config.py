@@ -4,4 +4,4 @@ id_cargo_atendente = 1391103327235866736
 TOKEN = "MTM5MTE5OTIyMjY5MDM1MzE4Mw.GJ27b9.9IF5N3iwwKSeITjIbMsnGYwtbyG2nH7DM3ks28"
 ID_CANAL_LOGS = 1393720007317393469 
 ID_CANAL_MOD = 1398446601072283758
-link_apelacao = "https://forms.gle/1a2b3c4d5e6f7g8h9i"
+link_apelacao = "https://form.jotform.com/242088340178054"
