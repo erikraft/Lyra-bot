@@ -136,7 +136,7 @@ class Ticket(commands.Cog):
             icon_url=interaction.guild.icon.url if interaction.guild.icon else None
         )
 
-        embed.set_image(url="https://i.ibb.co/yFk7w0xX/9b617284-2865-4c57-877b-317716b46715.jpg")
+        embed.set_image(url="https://i.ibb.co/6c9xZbvr/Ashley-Graves-Wallpaper-1.png")
 
         canal = self.bot.get_channel(CANAL_PAINEL_ID)
         if canal:
