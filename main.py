@@ -3,6 +3,8 @@ from discord.ext import commands
 from discord import app_commands
 import os
 import random
+from config import TOKEN
+
 
 intents = discord.Intents.default()
 intents.message_content = True  
@@ -79,5 +81,4 @@ async def on_message(message):
     await bot.process_commands(message)
 
 if __name__ == "__main__":
-    TOKEN = "MTM5MTE5OTIyMjY5MDM1MzE4Mw.GJ27b9.9IF5N3iwwKSeITjIbMsnGYwtbyG2nH7DM3ks28"
     bot.run(TOKEN)    
