@@ -1,4 +1,4 @@
-# Vamos-Joga-Minecraft-Bot
+# Lyra-bot
 Bot feito para Lyra
 
 ## 🧠 Funcionalidades Principais
