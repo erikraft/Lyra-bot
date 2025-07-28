@@ -72,47 +72,48 @@ pip install -r requirements.txt
 
 ---
 
-### 📄 Variáveis de Configuração do Bot
+
+### 📄 Variáveis de Configuração
 
 ```python
-ID_SERVIDOR = 1121464803941171270
+id_do_servidor = 1121464803941171270
 ```
 
-**Identificador do servidor Discord principal** onde o bot será executado.
+ID do servidor principal onde o bot irá operar.
 
 ```python
-ID_CANAL_PAINEL_TICKETS = 1309586413422907452
+CANAL_PAINEL_ID = 1309586413422907452  
 ```
 
-Canal onde o **painel de criação de tickets** será exibido aos usuários.
+ID do canal onde o painel de criação de tickets será exibido.
 
 ```python
-ID_CARGO_ATENDENTE = 1138938495428214824
+id_cargo_atendente = 1138938495428214824  
 ```
 
-Cargo atribuído aos **atendentes**, responsáveis por responder e gerenciar tickets.
+ID do cargo dos atendentes responsáveis por gerenciar os tickets.
 
 ```python
-BOT_TOKEN = "##"
+TOKEN = "##"
 ```
 
-**Token de autenticação do bot.** Nunca compartilhe este valor publicamente.
+Token de autenticação do bot (⚠️ **nunca compartilhe publicamente**).
 
 ```python
-ID_CANAL_LOGS_PUNICOES = 1161375392582619206
+ID_CANAL_LOGS = 1161375392582619206 
 ```
 
-Canal onde os **logs de punições** (como banimentos e silenciamentos) serão registrados automaticamente.
+ID do canal onde serão enviados os logs de punições (banimentos, silenciamentos, etc).
 
 ```python
-ID_CANAL_MODERACAO = 1398446601072283758
+ID_CANAL_MOD = 1398446601072283758
 ```
 
-Canal privado da **equipe de moderação**, usado para discussões internas e controle.
+ID do canal interno da moderação, usado para comunicação e registro de decisões.
 
 ```python
-LINK_FORMULARIO_APELACAO = "https://form.jotform.com/242088340178054"
+link_apelacao = "https://form.jotform.com/242088340178054"
 ```
 
-Link para o **formulário de apelação**, onde usuários punidos podem contestar suas punições.
+Link para o formulário de apelação, onde usuários punidos podem contestar a decisão.
 
