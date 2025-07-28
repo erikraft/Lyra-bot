@@ -30,14 +30,14 @@ Bot feito para ErikrafT
 ```bash
 bot/
 ├── cogs/
-│   ├── mod.py              # Comandos de moderação (painel, punições)
-│   ├── embed_creator.py    # Criador de embeds interativos
-│   ├── booster.py          # Mensagens automáticas de incentivo ao boost
-│   └── ...                 # Outros Cogs futuros
-├── config.py               # Variáveis de configuração (token, IDs, link de apelação)
-├── main.py                 # Arquivo principal de inicialização do bot
-├── requirements.txt        # Dependências do projeto
-└── README.md               # Você está aqui
+│   ├── mod.py                     # Comandos de moderação (painel, punições)
+│   ├── embed_creator.py           # Criador de embeds interativos
+│   ├── main.py (booster = [)    # Mensagens automáticas de incentivo ao boost
+│   └── ...                        # Outros Cogs futuros
+├── config.py                      # Variáveis de configuração (token, IDs, link de apelação)
+├── main.py                        # Arquivo principal de inicialização do bot
+├── requirements.txt               # Dependências do projeto
+└── README.md                      # Você está aqui
 ```
 
 ## 🧩 Requisitos
