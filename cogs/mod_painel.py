@@ -21,7 +21,7 @@ def gerar_view_apelacao():
     view = discord.ui.View()
     view.add_item(discord.ui.Button(
         label="Essa ação foi injusta?",
-        url=https://form.jotform.com/242088340178054,
+        url=link_apelacao,
         style=discord.ButtonStyle.link
     ))
     return view
