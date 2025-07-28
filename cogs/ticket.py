@@ -126,7 +126,7 @@ class Ticket(commands.Cog):
             description=(
                 "❓ Nessa seção, você pode tirar suas dúvidas ou entrar em contato com a nossa equipe de suporte.\n\n"
                 "🚫 Para evitar problemas, leia as opções com atenção e lembre-se de tentar pedir ajuda nos suportes comunitários antes de abrir um ticket.\n\n"
-                "<:Discord:1144329364377448518>  | Tickets relacionados ao canal `🎮｜Vamos Jogar MINECRAFT??`"
+                "<:Discord:1144329364377448518>  | Tickets relacionados ao canal `Constelação da Lyra 🌠`"
             ),
             color=discord.Color.blurple()
         )
