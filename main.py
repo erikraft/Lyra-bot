@@ -3,8 +3,7 @@ from discord.ext import commands
 from discord import app_commands
 import os
 import random
-from config import TOKEN
-
+from config import id_do_servidor, TOKEN
 
 intents = discord.Intents.default()
 intents.message_content = True  
@@ -13,27 +12,28 @@ id_do_servidor = 1391101840682389524
 bot = commands.Bot(command_prefix="!", intents=intents)
 count = 30
 booster = [
-    "<a:Boosts_pinning:1210685364184813598> Hey! Já pensou em impulsionar nosso servidor? <#1302434570003546142>",
-    "<a:Boosts_pinning:1210685364184813598> Dá aquela força pro server! Impulsiona a gente! <#1302434570003546142>",
-    "<a:Boosts_pinning:1210685364184813598> Nosso servidor merece brilhar — que tal impulsionar? <#1302434570003546142>",
-    "<a:Boosts_pinning:1210685364184813598> Você + Boost = servidor lendário. Bora? <#1302434570003546142> <#1302434570003546142>",
-    "<a:Boosts_pinning:1210685364184813598> Tá de bobeira? Impulsiona o server e ganha vantagens! <#1302434570003546142>",
-    "<a:Boosts_pinning:1210685364184813598> Ajude o servidor a crescer com um boost seu! <#1302434570003546142>",
-    "<a:Boosts_pinning:1210685364184813598> Chegou a hora de impulsionar quem te diverte. <#1302434570003546142>",
-    "<a:Boosts_pinning:1210685364184813598> Um boost seu muda tudo. Mostra sua força! <#1302434570003546142>",
-    "<a:Boosts_pinning:1210685364184813598> O servidor precisa de heróis. Impulsiona lá! <#1302434570003546142>",
-    "<a:Boosts_pinning:1210685364184813598> Você já impulsionou hoje? Não? Demonstre o seu Boost <#1302434570003546142>",
-    "<a:Boosts_pinning:1210685364184813598> Impulsionar o servidor não dói e ainda deixa ele lindo. <#1302434570003546142>",
-    "<a:Boosts_pinning:1210685364184813598> Dá aquele boost maroto pra gente continuar crescendo! <#1302434570003546142>",
-    "<a:Boosts_pinning:1210685364184813598> Sabe como melhorar tudo por aqui? Com um boost seu. <#1302434570003546142>",
-    "<a:Boosts_pinning:1210685364184813598> Se você curte aqui, retribui com um impulsinho! <#1302434570003546142>",
-    "<a:Boosts_pinning:1210685364184813598> Ajude o servidor a subir de nível. <#1302434570003546142>",
-    "<a:Boosts_pinning:1210685364184813598> Impulsionar é amar. Demonstre o seu Boost <#1302434570003546142>",
-    "<a:Boosts_pinning:1210685364184813598> Só os verdadeiros impulsionam. Você é um deles? <#1302434570003546142>",
-    "<a:Boosts_pinning:1210685364184813598> Mostra que você é raiz: impulsiona esse servidor agora! <#1302434570003546142>",
-    "<a:Boosts_pinning:1210685364184813598> Quer mais vantagens? Impulsiona e descobre! <#1302434570003546142>",
-    "<a:Boosts_pinning:1210685364184813598> É hora de mostrar apoio com estilo. Dá um boost <#1302434570003546142>"
+    "Seja nossa estrela. Impulsione: <#1302434570003546142>",
+    "Dê brilho ao servidor: <#1302434570003546142>",
+    "Nosso céu precisa de você: <#1302434570003546142>",
+    "Uma constelação te espera. Boost: <#1302434570003546142>",
+    "Brilhe com a gente: <#1302434570003546142>",
+    "Seu boost acende estrelas: <#1302434570003546142>",
+    "Adicione sua luz: <#1302434570003546142>",
+    "Impulsione e brilhe: <#1302434570003546142>",
+    "Você é a supernova: <#1302434570003546142>",
+    "Faça parte do cosmos: <#1302434570003546142>",
+    "Crie novas galáxias: <#1302434570003546142>",
+    "Impulsione o firmamento: <#1302434570003546142>",
+    "Você é a peça celeste: <#1302434570003546142>",
+    "Seu apoio é estelar: <#1302434570003546142>",
+    "Suba ao céu com a gente: <#1302434570003546142>",
+    "Impulsione. Ilumine. <#1302434570003546142>",
+    "Junte-se à constelação: <#1302434570003546142>",
+    "Seja luz, não sombra: <#1302434570003546142>",
+    "Brilhar é simples: boost <#1302434570003546142>",
+    "Toque as estrelas: <#1302434570003546142>"
 ]
+
 
 
 @bot.command()
@@ -81,4 +81,4 @@ async def on_message(message):
     await bot.process_commands(message)
 
 if __name__ == "__main__":
-    bot.run(TOKEN)    
+    bot.run(TOKEN)

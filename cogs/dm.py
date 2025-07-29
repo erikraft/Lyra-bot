@@ -11,7 +11,7 @@ class DMCog(commands.Cog):
     @app_commands.checks.has_permissions(administrator=True)
 
     async def dm_user(self, interaction: discord.Interaction, user: discord.User, mensagem: str):
-        embed = discord.Embed(description=mensagem, color=discord.Color.green())
+        embed = discord.Embed(description=mensagem, color=discord.Color.black())
         embed.set_author(
             name=interaction.guild.name if interaction.guild else "Servidor",
             icon_url=interaction.guild.icon.url if (interaction.guild and interaction.guild.icon) else None
