@@ -12,26 +12,26 @@ id_do_servidor = 1391101840682389524
 bot = commands.Bot(command_prefix="!", intents=intents)
 count = 30
 booster = [
-    "Seja nossa estrela. Impulsione: <#1302434570003546142>",
-    "Dê brilho ao servidor: <#1302434570003546142>",
-    "Nosso céu precisa de você: <#1302434570003546142>",
-    "Uma constelação te espera. Boost: <#1302434570003546142>",
-    "Brilhe com a gente: <#1302434570003546142>",
-    "Seu boost acende estrelas: <#1302434570003546142>",
-    "Adicione sua luz: <#1302434570003546142>",
-    "Impulsione e brilhe: <#1302434570003546142>",
-    "Você é a supernova: <#1302434570003546142>",
-    "Faça parte do cosmos: <#1302434570003546142>",
-    "Crie novas galáxias: <#1302434570003546142>",
-    "Impulsione o firmamento: <#1302434570003546142>",
-    "Você é a peça celeste: <#1302434570003546142>",
-    "Seu apoio é estelar: <#1302434570003546142>",
-    "Suba ao céu com a gente: <#1302434570003546142>",
-    "Impulsione. Ilumine. <#1302434570003546142>",
-    "Junte-se à constelação: <#1302434570003546142>",
-    "Seja luz, não sombra: <#1302434570003546142>",
-    "Brilhar é simples: boost <#1302434570003546142>",
-    "Toque as estrelas: <#1302434570003546142>"
+    "<a:Boosts_pinning:1210685364184813598> Seja nossa estrela. Impulsione: <#1302434570003546142>",
+    "<a:Boosts_pinning:1210685364184813598> Dê brilho ao servidor: <#1302434570003546142>",
+    "<a:Boosts_pinning:1210685364184813598> Nosso céu precisa de você: <#1302434570003546142>",
+    "<a:Boosts_pinning:1210685364184813598> Uma constelação te espera. Boost: <#1302434570003546142>",
+    "<a:Boosts_pinning:1210685364184813598> Brilhe com a gente: <#1302434570003546142>",
+    "<a:Boosts_pinning:1210685364184813598> Seu boost acende estrelas: <#1302434570003546142>",
+    "<a:Boosts_pinning:1210685364184813598> Adicione sua luz: <#1302434570003546142>",
+    "<a:Boosts_pinning:1210685364184813598> Impulsione e brilhe: <#1302434570003546142>",
+    "<a:Boosts_pinning:1210685364184813598> Você é a supernova: <#1302434570003546142>",
+    "<a:Boosts_pinning:1210685364184813598> Faça parte do cosmos: <#1302434570003546142>",
+    "<a:Boosts_pinning:1210685364184813598> Crie novas galáxias: <#1302434570003546142>",
+    "<a:Boosts_pinning:1210685364184813598> Impulsione o firmamento: <#1302434570003546142>",
+    "<a:Boosts_pinning:1210685364184813598> Você é a peça celeste: <#1302434570003546142>",
+    "<a:Boosts_pinning:1210685364184813598> Seu apoio é estelar: <#1302434570003546142>",
+    "<a:Boosts_pinning:1210685364184813598> Suba ao céu com a gente: <#1302434570003546142>",
+    "<a:Boosts_pinning:1210685364184813598> Impulsione. Ilumine. <#1302434570003546142>",
+    "<a:Boosts_pinning:1210685364184813598> Junte-se à constelação: <#1302434570003546142>",
+    "<a:Boosts_pinning:1210685364184813598> Seja luz, não sombra: <#1302434570003546142>",
+    "<a:Boosts_pinning:1210685364184813598> Brilhar é simples: boost <#1302434570003546142>",
+    "<a:Boosts_pinning:1210685364184813598> Toque as estrelas: <#1302434570003546142>"
 ]
 
 
