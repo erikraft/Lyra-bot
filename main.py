@@ -23,7 +23,7 @@ booster = [
     "<a:Boosts_pinning:1210685364184813598> Um boost seu muda tudo. Mostra sua força!",
     "<a:Boosts_pinning:1210685364184813598> O servidor precisa de heróis. Impulsiona lá!",
     "<a:Boosts_pinning:1210685364184813598> Você já impulsionou hoje? Não? Demonstre o seu Boost",
-    "<a:Boosts_pinning:1210685364184813598> Impulsionar o servidor não dói e ainda deixa ele lindo. ",
+    "<a:Boosts_pinning:1210685364184813598> Impulsionar o servidor não dói e ainda deixa ele lindo.",
     "<a:Boosts_pinning:1210685364184813598> Dá aquele boost maroto pra gente continuar crescendo!",
     "<a:Boosts_pinning:1210685364184813598> Sabe como melhorar tudo por aqui? Com um boost seu.",
     "<a:Boosts_pinning:1210685364184813598> Se você curte aqui, retribui com um impulsinho!",
