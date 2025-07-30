@@ -1,10 +1,17 @@
+from __future__ import annotations
+
 import discord
 from discord.ext import commands
-from discord import app_commands
+from discord import app_commands, ui, Interaction, ButtonStyle, SelectOption, Role, TextChannel, CategoryChannel
+from typing import Optional, List, Dict, Any, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from discord import Member, Guild, Thread
+
 from config import CANAL_PAINEL_ID, id_cargo_atendente, id_do_servidor
 
 
-class Dropdown(discord.ui.Select):
+class Dropdown(ui.Select):
     def __init__(self):
         options = [
             discord.SelectOption(value="denuncia", label="Denúncia", emoji="🚨"),
@@ -40,12 +47,12 @@ class Dropdown(discord.ui.Select):
 
 
 
-class DropdownView(discord.ui.View):
+class DropdownView(ui.View):
     def __init__(self):
         super().__init__(timeout=None)
         self.add_item(Dropdown())
 
-class CreateTicket(discord.ui.View):
+class CreateTicket(ui.View):
     def __init__(self, tipo: str):
         super().__init__(timeout=300)
         self.tipo = tipo
@@ -101,7 +108,7 @@ class CreateTicket(discord.ui.View):
         await ticket.send(f"{msg_inicial[self.tipo]} {interaction.user.mention}")
 
 class Ticket(commands.Cog):
-    def __init__(self, bot: commands.Bot):
+    def __init__(self, bot: commands.Bot) -> None:
         self.bot = bot
 
     async def cog_load(self):
@@ -117,10 +124,10 @@ class Ticket(commands.Cog):
                     return
             await canal.send("Mensagem do painel", view=DropdownView())
 
-    @app_commands.command(name="setup", description="Envia o painel manualmente.")
+    @app_commands.command(name="setup", description="Envia o painel de tickets no canal atual.")
     @app_commands.guilds(discord.Object(id_do_servidor))
     @app_commands.checks.has_permissions(manage_guild=True)
-    async def setup(self, interaction: discord.Interaction):
+    async def setup(self, interaction: Interaction) -> None:
         await interaction.response.defer(ephemeral=True)  # oculta a resposta do comando
 
         embed = discord.Embed(
@@ -146,9 +153,10 @@ class Ticket(commands.Cog):
 
         await interaction.followup.send("Painel enviado com sucesso.", ephemeral=True)
 
-    @app_commands.command(name="fecharticket", description="Feche um atendimento atual.")
+    @app_commands.command(name="fecharticket", description="Fecha o ticket atual.")
     @app_commands.guilds(discord.Object(id_do_servidor))
-    async def fecharticket(self, interaction: discord.Interaction):
+    @app_commands.checks.has_permissions(manage_threads=True)
+    async def fecharticket(self, interaction: Interaction) -> None:
         mod = interaction.guild.get_role(id_cargo_atendente)
         if str(interaction.user.id) in interaction.channel.name or (mod and mod in interaction.user.roles):
             await interaction.response.send_message(f"O ticket foi arquivado por {interaction.user.mention}, obrigado por entrar em contato!")
@@ -156,5 +164,5 @@ class Ticket(commands.Cog):
         else:
             await interaction.response.send_message("Isso não pode ser feito aqui...")
 
-async def setup(bot: commands.Bot):
+async def setup(bot: commands.Bot) -> None:
     await bot.add_cog(Ticket(bot))

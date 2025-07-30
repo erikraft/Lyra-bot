@@ -1,12 +1,15 @@
+from __future__ import annotations
+
 import discord
 from discord.ext import commands
-from discord import app_commands 
-import datetime
-from datetime import timedelta, datetime
-from config import id_do_servidor, ID_CANAL_LOGS, ID_CANAL_MOD
-from config import link_apelacao
-from datetime import timedelta
-import discord.utils
+from discord import app_commands, Interaction, ui, ButtonStyle
+from datetime import datetime, timedelta
+from typing import Optional, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from discord import Member, TextChannel, Guild
+
+from config import id_do_servidor, ID_CANAL_LOGS, ID_CANAL_MOD, link_apelacao
 
 
 
@@ -28,8 +31,8 @@ def gerar_view_apelacao():
 
 
 
-class ModPainel(discord.ui.View):
-    def __init__(self, bot: commands.Bot, usuario: discord.Member):
+class ModPainel(ui.View):
+    def __init__(self, bot: commands.Bot, usuario: Member) -> None:
         super().__init__(timeout=180)
         self.bot = bot
         self.usuario = usuario
@@ -46,9 +49,8 @@ class ModPainel(discord.ui.View):
     async def mutar(self, interaction: discord.Interaction, button: discord.ui.Button):
         await interaction.response.send_modal(MuteModal(self.bot, self.usuario))
 
-
-class BanModal(discord.ui.Modal, title="Banir usuário"):
-    def __init__(self, bot: commands.Bot, usuario: discord.Member):
+class BanModal(ui.Modal, title="Banir Usuário"):
+    def __init__(self, bot: commands.Bot, usuario: Member) -> None:
         super().__init__()
         self.bot = bot
         self.usuario = usuario
@@ -61,7 +63,7 @@ class BanModal(discord.ui.Modal, title="Banir usuário"):
         )
         self.add_item(self.motivo)
 
-    async def on_submit(self, interaction: discord.Interaction):
+    async def on_submit(self, interaction: discord.Interaction) -> None:
         motivo = self.motivo.value
         try:
             await self.usuario.ban(reason=motivo)
@@ -90,7 +92,6 @@ class BanModal(discord.ui.Modal, title="Banir usuário"):
                 await canal_logs.send(embed=embed_log)
                 await mod_logs.send(embed=embed_log)
 
-
             embed_resp = discord.Embed(
                 description=f"{self.usuario.mention} foi banido com sucesso.",
                 color=COR_BAN
@@ -99,10 +100,8 @@ class BanModal(discord.ui.Modal, title="Banir usuário"):
         except Exception as e:
             await interaction.response.send_message(f"Erro ao banir: {e}", ephemeral=True)
 
-
-
-class KickModal(discord.ui.Modal, title="Expulsar usuário"):
-    def __init__(self, bot: commands.Bot, usuario: discord.Member):
+class KickModal(ui.Modal, title="Expulsar Usuário"):
+    def __init__(self, bot: commands.Bot, usuario: Member) -> None:
         super().__init__()
         self.bot = bot
         self.usuario = usuario
@@ -115,7 +114,7 @@ class KickModal(discord.ui.Modal, title="Expulsar usuário"):
         )
         self.add_item(self.motivo)
 
-    async def on_submit(self, interaction: discord.Interaction):
+    async def on_submit(self, interaction: discord.Interaction) -> None:
         motivo = self.motivo.value
         try:
             await self.usuario.kick(reason=motivo)
@@ -150,10 +149,8 @@ class KickModal(discord.ui.Modal, title="Expulsar usuário"):
         except Exception as e:
             await interaction.response.send_message(f"Erro ao expulsar: {e}", ephemeral=True)
 
-
-
-class MuteModal(discord.ui.Modal, title="Mutar usuário"):
-    def __init__(self, bot: commands.Bot, usuario: discord.Member):
+class MuteModal(ui.Modal, title="Mutar Usuário"):
+    def __init__(self, bot: commands.Bot, usuario: Member) -> None:
         super().__init__()
         self.bot = bot
         self.usuario = usuario
@@ -175,7 +172,7 @@ class MuteModal(discord.ui.Modal, title="Mutar usuário"):
         self.add_item(self.motivo)
         self.add_item(self.tempo)
 
-    async def on_submit(self, interaction: discord.Interaction):
+    async def on_submit(self, interaction: discord.Interaction) -> None:
         motivo = self.motivo.value
         try:
             horas = float(self.tempo.value)
@@ -186,11 +183,9 @@ class MuteModal(discord.ui.Modal, title="Mutar usuário"):
         duracao = timedelta(hours=horas)
 
         try:
-            duracao = timedelta(hours=horas)
             timeout_expira_em = discord.utils.utcnow() + duracao
 
             await self.usuario.edit(timed_out_until=timeout_expira_em, reason=motivo)
-
 
             try:
                 embed_dm = discord.Embed(
@@ -225,18 +220,14 @@ class MuteModal(discord.ui.Modal, title="Mutar usuário"):
         except Exception as e:
             await interaction.response.send_message(f"Erro ao aplicar mute: {e}", ephemeral=True)
 
-
-
-
 class Mod(commands.Cog):
-    def __init__(self, bot: commands.Bot):
+    def __init__(self, bot: commands.Bot) -> None:
         self.bot = bot
 
-    @app_commands.command(name="modpainel", description="Painel de moderação para um usuário.")
-    @app_commands.describe(usuario="Usuário a ser moderado")
-    @app_commands.guilds(discord.Object(id_do_servidor))  # Substitua pelo ID real
-    @app_commands.checks.has_permissions(kick_members=True, ban_members=True, manage_roles=True)
-    async def abrir_painel_mod(self, interaction: discord.Interaction, usuario: discord.Member):  # <-- ADICIONADO self
+    @app_commands.command(name="painel_mod", description="Abre o painel de moderação para um usuário.")
+    @app_commands.describe(usuario="Usuário para abrir o painel de moderação")
+    @app_commands.checks.has_permissions(administrator=True)
+    async def abrir_painel_mod(self, interaction: Interaction, usuario: Member) -> None:
         embed = discord.Embed(
             title="🛠️ Painel de Moderação",
             description=f"Ações disponíveis para moderar {usuario.mention}",
@@ -256,5 +247,5 @@ class Mod(commands.Cog):
 
 
 
-async def setup(bot: commands.Bot):
+async def setup(bot: commands.Bot) -> None:
     await bot.add_cog(Mod(bot))

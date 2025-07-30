@@ -1,10 +1,11 @@
 import discord
-from discord import app_commands
+from discord import app_commands, Interaction
 from discord.ext import commands
 from datetime import datetime
+from typing import Optional
 
 class EmbedBuilderView(discord.ui.View):
-    def __init__(self, bot: commands.Bot, interaction: discord.Interaction):
+    def __init__(self, bot: commands.Bot, interaction: Interaction):
         super().__init__(timeout=300)
         self.bot = bot
         self.interaction = interaction
@@ -129,7 +130,7 @@ class EmbedBuilderView(discord.ui.View):
             await interaction.followup.edit_message(self.message.id, embed=self.embed, view=self)
 
 class EmbedCreator(commands.Cog):
-    def __init__(self, bot: commands.Bot):
+    def __init__(self, bot: commands.Bot) -> None:
         self.bot = bot
 
     @app_commands.command(name="embed", description="Cria um embed interativo.")
@@ -138,5 +139,5 @@ class EmbedCreator(commands.Cog):
         view = EmbedBuilderView(self.bot, interaction)
         await view.start()
 
-async def setup(bot: commands.Bot):
+async def setup(bot: commands.Bot) -> None:
     await bot.add_cog(EmbedCreator(bot))
