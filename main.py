@@ -58,12 +58,15 @@ async def on_ready():
 
 async def load_cogs():
     for filename in os.listdir("./cogs"):
-        if filename.endswith(".py"):
+        if filename.endswith(".py") and filename != "__init__.py":
             try:
                 await bot.load_extension(f"cogs.{filename[:-3]}")
-                print(f"Cog {filename} carregado.")
+                print(f"Cog {filename} carregado com sucesso!")
             except Exception as e:
                 print(f"Falha ao carregar {filename}: {e}")
+                # Imprime o traceback completo para ajudar no diagnóstico
+                import traceback
+                traceback.print_exc()
 
 @bot.event
 async def on_connect():
@@ -81,4 +84,7 @@ async def on_message(message):
     await bot.process_commands(message)
 
 if __name__ == "__main__":
+    # Carrega todos os cogs antes de iniciar o bot
+    import asyncio
+    asyncio.run(load_cogs())
     bot.run(TOKEN)

@@ -2,12 +2,9 @@ from __future__ import annotations
 
 import discord
 from discord.ext import commands
-from discord import app_commands, Interaction, ui, ButtonStyle
+from discord import app_commands, Interaction, ui, ButtonStyle, Member, TextChannel, Guild
 from datetime import datetime, timedelta
 from typing import Optional, TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from discord import Member, TextChannel, Guild
 
 from config import id_do_servidor, ID_CANAL_LOGS, ID_CANAL_MOD, link_apelacao
 
