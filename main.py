@@ -8,7 +8,6 @@ from config import id_do_servidor, TOKEN
 intents = discord.Intents.default()
 intents.message_content = True  
 
-id_do_servidor = 1391101840682389524 
 bot = commands.Bot(command_prefix="!", intents=intents)
 count = 30
 booster = [

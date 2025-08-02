@@ -170,5 +170,15 @@ class Ticket(commands.Cog):
         else:
             await interaction.response.send_message("Isso não pode ser feito aqui...")
 
+    @app_commands.command(name="ticket", description="Abra o painel de tickets em uma mensagem privada.")
+    @app_commands.guilds(discord.Object(id_do_servidor))
+    async def ticketcmd(self, interaction: Interaction) -> None:
+        """Disponibiliza o seletor de tickets para qualquer membro, sem exigir permissões extras."""
+        await interaction.response.send_message(
+            "Selecione o tipo de atendimento:",
+            view=DropdownView(),
+            ephemeral=True
+        )
+
 async def setup(bot: commands.Bot) -> None:
     await bot.add_cog(Ticket(bot))
