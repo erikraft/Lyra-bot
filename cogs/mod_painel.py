@@ -227,7 +227,7 @@ class Mod(commands.Cog):
     def __init__(self, bot: commands.Bot) -> None:
         self.bot = bot
 
-    @app_commands.command(name="painel_mod", description="⚔️｜Abre o painel de moderação para um usuário.")
+    @app_commands.command(name="painel_mod", description="🛡️｜Abre o painel de moderação para um usuário.")
     @app_commands.describe(usuario="Usuário para abrir o painel de moderação")
     @app_commands.checks.has_permissions(administrator=True)
     async def abrir_painel_mod(self, interaction: Interaction, usuario: Member) -> None:
