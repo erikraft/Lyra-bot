@@ -232,7 +232,7 @@ class Mod(commands.Cog):
     @app_commands.checks.has_permissions(administrator=True)
     async def abrir_painel_mod(self, interaction: Interaction, usuario: Member) -> None:
         embed = discord.Embed(
-            title="<:Icon_Moderation:1401248956406693988> Painel de Moderação",
+            title="🛡️ Painel de Moderação",
             description=f"Ações disponíveis para moderar {usuario.mention}",
             color=0xffcc00,
             timestamp=datetime.utcnow()
