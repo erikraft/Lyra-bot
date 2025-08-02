@@ -1,5 +1,5 @@
-# Vamos-Jogar-Minecraft-Bot
-Bot feito para ErikrafT
+# Lyra-bot
+Bot feito para Lyra
 
 ## 🧠 Funcionalidades Principais
 
@@ -76,19 +76,19 @@ pip install -r requirements.txt
 ### 📄 Variáveis de Configuração
 
 ```python
-id_do_servidor = 1121464803941171270
+id_do_servidor = 1302432526811402240
 ```
 
 ID do servidor principal onde o bot irá operar.
 
 ```python
-CANAL_PAINEL_ID = 1309586413422907452  
+CANAL_PAINEL_ID = 1320991457443708978  
 ```
 
 ID do canal onde o painel de criação de tickets será exibido.
 
 ```python
-id_cargo_atendente = 1138938495428214824  
+id_cargo_atendente = 1302434515515342859  
 ```
 
 ID do cargo dos atendentes responsáveis por gerenciar os tickets.
@@ -100,19 +100,20 @@ TOKEN = "##"
 Token de autenticação do bot (⚠️ **nunca compartilhe publicamente**).
 
 ```python
-ID_CANAL_LOGS = 1161375392582619206 
+ID_CANAL_LOGS = 1302434582884253716 
 ```
 
 ID do canal onde serão enviados os logs de punições (banimentos, silenciamentos, etc).
 
 ```python
-ID_CANAL_MOD = 1398446601072283758
+ID_CANAL_MOD = 1302434543910780990
 ```
 
 ID do canal interno da moderação, usado para comunicação e registro de decisões.
 
 ```python
-link_apelacao = "https://form.jotform.com/242088340178054"
+link_apelacao = "https://www.threads.com/@lyra_vidal" (Por Enquanto)
 ```
 
 Link para o formulário de apelação, onde usuários punidos podem contestar a decisão.
+
