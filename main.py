@@ -87,9 +87,14 @@ async def status_task():
     await bot.change_presence(activity=discord.Game(name=random.choice(statuses)))
 
 async def load_cogs():
+    # Garante que o diretório mini_jogos seja tratado como pacote
+    if not os.path.exists("./cogs/mini_jogos/__init__.py"):
+        with open("./cogs/mini_jogos/__init__.py", "w") as f:
+            f.write("# Pacote de mini-jogos")
+    
     # Carrega cogs principais
     for filename in os.listdir("./cogs"):
-        if filename.endswith(".py") and filename != "__init__.py":
+        if filename.endswith(".py") and filename != "__init__.py" and filename != "mini_jogos.py":
             try:
                 await bot.load_extension(f"cogs.{filename[:-3]}")
                 print(f"Cog {filename} carregado com sucesso!")
