@@ -1,5 +1,5 @@
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
 from discord import app_commands
 import os
 import random
@@ -10,6 +10,7 @@ intents.message_content = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
 count = 30
+# Mensagens para incentivar impulsos/boosts
 booster = [
     "<a:Boosts_pinning:1210685364184813598> Seja nossa estrela. Impulsione: <#1302434570003546142>",
     "<a:Boosts_pinning:1210685364184813598> Dê brilho ao servidor: <#1302434570003546142>",
@@ -54,6 +55,26 @@ async def on_ready():
     except Exception as e:
         print(f"Erro ao sincronizar comandos: {e}")
     print("Bot está pronto!")
+    # Inicia a tarefa de status caso ainda não esteja ativa
+    if not status_task.is_running():
+        status_task.start()
+
+# Lista de status que combinam com mulheres e garotas
+statuses = [
+    "💧 BEBA ÁGUA!",
+    "🌸 Você é incrível!",
+    "👑 Ajuste sua coroa, rainha!",
+    "💄 Brilhe hoje!",
+    "💖 Ame-se primeiro!",
+    "✨ Sorria, linda!",
+    "💅 Unhas on point!",
+    "🍓 Hora da vitamina!"
+]
+
+@tasks.loop(minutes=30)
+async def status_task():
+    """Altera o status do bot periodicamente."""
+    await bot.change_presence(activity=discord.Game(name=random.choice(statuses)))
 
 async def load_cogs():
     for filename in os.listdir("./cogs"):
