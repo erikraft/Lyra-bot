@@ -131,7 +131,6 @@ class Ticket(commands.Cog):
         await canal.send("Mensagem do painel", view=DropdownView())
 
     @app_commands.command(name="setup", description="Envia o painel de tickets no canal atual.")
-    @app_commands.guilds(discord.Object(id_do_servidor))
     @app_commands.checks.has_permissions(manage_guild=True)
     async def setup(self, interaction: Interaction) -> None:
         await interaction.response.defer(ephemeral=True)  # oculta a resposta do comando
@@ -160,7 +159,6 @@ class Ticket(commands.Cog):
         await interaction.followup.send("Painel enviado com sucesso.", ephemeral=True)
 
     @app_commands.command(name="fecharticket", description="Fecha o ticket atual.")
-    @app_commands.guilds(discord.Object(id_do_servidor))
     @app_commands.checks.has_permissions(manage_threads=True)
     async def fecharticket(self, interaction: Interaction) -> None:
         mod = interaction.guild.get_role(id_cargo_atendente)
@@ -171,7 +169,6 @@ class Ticket(commands.Cog):
             await interaction.response.send_message("Isso não pode ser feito aqui...")
 
     @app_commands.command(name="ticket", description="Abra o painel de tickets em uma mensagem privada.")
-    @app_commands.guilds(discord.Object(id_do_servidor))
     async def ticketcmd(self, interaction: Interaction) -> None:
         """Disponibiliza o seletor de tickets para qualquer membro, sem exigir permissões extras."""
         await interaction.response.send_message(
