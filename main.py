@@ -87,36 +87,18 @@ async def status_task():
     await bot.change_presence(activity=discord.Game(name=random.choice(statuses)))
 
 async def load_cogs():
-    # Garante que o diretório mini_jogos seja tratado como pacote
-    if not os.path.exists("./cogs/mini_jogos/__init__.py"):
-        with open("./cogs/mini_jogos/__init__.py", "w") as f:
-            f.write("# Pacote de mini-jogos")
-    
-    # Carrega cogs principais
     for filename in os.listdir("./cogs"):
-        if filename.endswith(".py") and filename != "__init__.py" and filename != "mini_jogos.py":
+        if filename.endswith(".py") and filename != "__init__.py":
             try:
                 await bot.load_extension(f"cogs.{filename[:-3]}")
                 print(f"Cog {filename} carregado com sucesso!")
             except commands.errors.ExtensionAlreadyLoaded:
+                # Caso já esteja carregado, apenas ignore para evitar erro duplicado
                 print(f"Cog {filename} já estava carregado, ignorando.")
             except Exception as e:
                 print(f"Falha ao carregar {filename}: {e}")
                 import traceback
                 traceback.print_exc()
-    
-    # Carrega mini-jogos individualmente
-    mini_jogos = ["lista", "dado", "coinflip", "rps"]
-    for jogo in mini_jogos:
-        try:
-            await bot.load_extension(f"cogs.mini_jogos.{jogo}")
-            print(f"Mini-jogo {jogo} carregado com sucesso!")
-        except Exception as e:
-            print(f"Falha ao carregar mini-jogo {jogo}: {e}")
-            import traceback
-            traceback.print_exc()
-
-
 
 @bot.event
 async def on_message(message):

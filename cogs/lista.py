@@ -19,7 +19,7 @@ class MiniJogosLista(commands.Cog):
             )
             .add_field(name="🎲 Dado", value="`/roll` – Jogue um dado aleatório.", inline=False)
             .add_field(name="🪙 Cara ou Coroa", value="`/coinflip` – Cara ou coroa.", inline=False)
-            .add_field(name="⚔️ Pedra-Papel-Tesoura", value="`/rps` – Desafie o bot.", inline=False)
+            .add_field(name="✂️ Pedra-Papel-Tesoura", value="`/rps` – Desafie o bot.", inline=False)
         )
         await interaction.response.send_message(embed=embed, ephemeral=True)
 

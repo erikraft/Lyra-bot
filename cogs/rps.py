@@ -34,20 +34,20 @@ class RPS(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @app_commands.command(name="rps", description="⚔️｜Jogue Pedra, Papel ou Tesoura contra o bot")
+    @app_commands.command(name="rps", description="✂️｜Jogue Pedra, Papel ou Tesoura contra o bot")
     @app_commands.describe(escolha="Sua escolha: Pedra, Papel ou Tesoura")
-    async def rps_slash(self, interaction: discord.Interaction, escolha: app_commands.Choice[str]):
-        jogador = escolha.value
+    @app_commands.choices(escolha=[
+        app_commands.Choice(name="🪨 Pedra", value="🪨 Pedra"),
+        app_commands.Choice(name="📄 Papel", value="📄 Papel"),
+        app_commands.Choice(name="✂️ Tesoura", value="✂️ Tesoura")
+    ])
+    async def rps_slash(self, interaction: discord.Interaction, escolha: str):
         bot_escolha = random.choice(ESCOLHAS)
-        resultado = resultado_rps(jogador, bot_escolha)
+        resultado = resultado_rps(escolha, bot_escolha)
         await interaction.response.send_message(
-            f"Você escolheu **{jogador}**. O bot escolheu **{bot_escolha}**. {resultado}",
+            f"Você escolheu **{escolha}**. O bot escolheu **{bot_escolha}**. {resultado}",
             ephemeral=True,
         )
-
-    @rps_slash.autocomplete("escolha")
-    async def rps_autocomplete(self, interaction: discord.Interaction, current: str):
-        return [app_commands.Choice(name=op, value=op) for op in ESCOLHAS if current.lower() in op.lower()]
 
 
 async def setup(bot: commands.Bot):
