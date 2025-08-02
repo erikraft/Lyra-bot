@@ -112,17 +112,23 @@ class Ticket(commands.Cog):
         self.bot = bot
 
     async def cog_load(self):
+        # Registra a View de forma persistente assim que o cog é carregado. Nesse momento o bot ainda
+        # não está conectado, então não tente acessar o cache de canais aqui.
         self.bot.add_view(DropdownView())
 
+    @commands.Cog.listener()
+    async def on_ready(self):
+        """Envia o painel de tickets quando o bot estiver totalmente pronto e o cache populado."""
         canal = self.bot.get_channel(CANAL_PAINEL_ID)
-        if canal:
-            mensagens = []
-            async for msg in canal.history(limit=10):
-                mensagens.append(msg)
-            for msg in mensagens:
-                if msg.author == self.bot.user and msg.components:
-                    return
-            await canal.send("Mensagem do painel", view=DropdownView())
+        if not canal:  # ID incorreto ou bot sem permissão para ver o canal
+            return
+
+        # Evita enviar mensagens duplicadas se já existir um painel ativo
+        async for msg in canal.history(limit=10):
+            if msg.author == self.bot.user and msg.components:
+                return
+
+        await canal.send("Mensagem do painel", view=DropdownView())
 
     @app_commands.command(name="setup", description="Envia o painel de tickets no canal atual.")
     @app_commands.guilds(discord.Object(id_do_servidor))
