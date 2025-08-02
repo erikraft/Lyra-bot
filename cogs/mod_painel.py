@@ -8,10 +8,6 @@ from typing import Optional, TYPE_CHECKING
 
 from config import id_do_servidor, ID_CANAL_LOGS, ID_CANAL_MOD, link_apelacao
 
-
-
-
-
 COR_BAN = 0xff4c4c
 COR_KICK = 0xff944c
 COR_MUTE = 0x4c6aff
@@ -26,23 +22,33 @@ def gerar_view_apelacao():
     ))
     return view
 
-
-
 class ModPainel(ui.View):
     def __init__(self, bot: commands.Bot, usuario: Member) -> None:
         super().__init__(timeout=180)
         self.bot = bot
         self.usuario = usuario
 
-    @discord.ui.button(label="Banir", style=discord.ButtonStyle.danger)
+    @discord.ui.button(
+        label="Banir",
+        style=discord.ButtonStyle.danger,
+        emoji="<:Icon_BanMember:1401246654438576260>"
+    )
     async def banir(self, interaction: discord.Interaction, button: discord.ui.Button):
         await interaction.response.send_modal(BanModal(self.bot, self.usuario))
 
-    @discord.ui.button(label="Kick", style=discord.ButtonStyle.danger)
+    @discord.ui.button(
+        label="Kick",
+        style=discord.ButtonStyle.danger,
+        emoji="<:Icon_Member_Kick:1401246895107604552>"
+    )
     async def kickar(self, interaction: discord.Interaction, button: discord.ui.Button):
         await interaction.response.send_modal(KickModal(self.bot, self.usuario))
 
-    @discord.ui.button(label="Mute", style=discord.ButtonStyle.secondary)
+    @discord.ui.button(
+        label="Mute",
+        style=discord.ButtonStyle.secondary,
+        emoji="<:Icon_Timeout:1401246976921571448>"
+    )
     async def mutar(self, interaction: discord.Interaction, button: discord.ui.Button):
         await interaction.response.send_modal(MuteModal(self.bot, self.usuario))
 
@@ -67,7 +73,7 @@ class BanModal(ui.Modal, title="Banir Usuário"):
 
             try:
                 embed_dm = discord.Embed(
-                    title="Você foi banido",
+                    title="<:IconR_ban:1314237924702945344> Você foi banido",
                     description=f"Motivo: {motivo}",
                     color=COR_BAN
                 )
@@ -80,7 +86,7 @@ class BanModal(ui.Modal, title="Banir Usuário"):
             mod_logs = self.bot.get_channel(ID_CANAL_MOD)
             if canal_logs:
                 embed_log = discord.Embed(
-                    title="🔨 Banimento aplicado",
+                    title="<:IconR_ban:1314237924702945344> Banimento aplicado",
                     description=f"{self.usuario.mention} foi banido por {interaction.user.mention}",
                     color=COR_BAN,
                     timestamp=datetime.utcnow()
@@ -118,7 +124,7 @@ class KickModal(ui.Modal, title="Expulsar Usuário"):
 
             try:
                 embed_dm = discord.Embed(
-                    title="Você foi expulso",
+                    title="<:Icon_Member_Kick:1401246895107604552> Você foi expulso",
                     description=f"Motivo: {motivo}",
                     color=COR_KICK
                 )
@@ -130,7 +136,7 @@ class KickModal(ui.Modal, title="Expulsar Usuário"):
             mod_logs = self.bot.get_channel(ID_CANAL_MOD)
             if canal_logs:
                 embed_log = discord.Embed(
-                    title="👢 Expulsão aplicada",
+                    title="<:Icon_Member_Kick:1401246895107604552> Expulsão aplicada",
                     description=f"{self.usuario.mention} foi expulso por {interaction.user.mention}",
                     color=COR_KICK,
                     timestamp=datetime.utcnow()
@@ -186,7 +192,7 @@ class MuteModal(ui.Modal, title="Mutar Usuário"):
 
             try:
                 embed_dm = discord.Embed(
-                    title="Você foi silenciado",
+                    title="<:Icon_Timeout:1401246976921571448> Você foi silenciado",
                     description=f"Motivo: {motivo}\nDuração: {horas} horas",
                     color=COR_MUTE
                 )
@@ -199,7 +205,7 @@ class MuteModal(ui.Modal, title="Mutar Usuário"):
             mod_logs = self.bot.get_channel(ID_CANAL_MOD)
             if canal_logs:
                 embed_log = discord.Embed(
-                    title="🔇 Timeout aplicado",
+                    title="<:Icon_Timeout:1401246976921571448> Timeout aplicado",
                     description=f"{self.usuario.mention} foi silenciado por {interaction.user.mention}",
                     color=COR_MUTE,
                     timestamp=datetime.utcnow()
@@ -221,23 +227,23 @@ class Mod(commands.Cog):
     def __init__(self, bot: commands.Bot) -> None:
         self.bot = bot
 
-    @app_commands.command(name="painel_mod", description="Abre o painel de moderação para um usuário.")
+    @app_commands.command(name="painel_mod", description="⚔️｜Abre o painel de moderação para um usuário.")
     @app_commands.describe(usuario="Usuário para abrir o painel de moderação")
     @app_commands.checks.has_permissions(administrator=True)
     async def abrir_painel_mod(self, interaction: Interaction, usuario: Member) -> None:
         embed = discord.Embed(
-            title="🛠️ Painel de Moderação",
+            title="<:Icon_Moderation:1401248956406693988> Painel de Moderação",
             description=f"Ações disponíveis para moderar {usuario.mention}",
             color=0xffcc00,
             timestamp=datetime.utcnow()
         )
         embed.set_thumbnail(url=usuario.display_avatar.url)
 
-        embed.add_field(name="👤 Usuário", value=str(usuario), inline=True)
-        embed.add_field(name="📛 Apelido", value=usuario.nick or "Nenhum", inline=True)
-        embed.add_field(name="🆔 ID", value=str(usuario.id), inline=False)
-        embed.add_field(name="📅 Conta criada", value=usuario.created_at.strftime('%d/%m/%Y %H:%M'), inline=True)
-        embed.add_field(name="📌 Entrou no servidor", value=usuario.joined_at.strftime('%d/%m/%Y %H:%M'), inline=True)
+        embed.add_field(name="<:Icon_Member:1401249106097082469> Usuário", value=str(usuario), inline=True)
+        embed.add_field(name="<:Icon_Blog:1401249231670349909> Apelido", value=usuario.nick or "Nenhum", inline=True)
+        embed.add_field(name="<:Icon_ID:1222927153403002931> ID", value=str(usuario.id), inline=False)
+        embed.add_field(name="<:Icon_Channel_Event:1401249482787786882> Conta criada", value=usuario.created_at.strftime('%d/%m/%Y %H:%M'), inline=True)
+        embed.add_field(name="<:Icon_Community:1314237798223450223> Entrou no servidor", value=usuario.joined_at.strftime('%d/%m/%Y %H:%M'), inline=True)
 
         view = ModPainel(self.bot, usuario)  # Usa self.bot ao invés de bot
         await interaction.response.send_message(embed=embed, view=view, ephemeral=True)

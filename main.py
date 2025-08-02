@@ -9,7 +9,7 @@ intents = discord.Intents.default()
 intents.message_content = True  
 
 bot = commands.Bot(command_prefix="!", intents=intents)
-count = 30
+count = 50
 # Mensagens para incentivar impulsos/boosts
 booster = [
     "<a:Boosts_pinning:1210685364184813598> Seja nossa estrela. Impulsione: <#1302434570003546142>",
@@ -34,11 +34,9 @@ booster = [
     "<a:Boosts_pinning:1210685364184813598> Toque as estrelas: <#1302434570003546142>"
 ]
 
-
-
 @bot.command()
 async def ping(ctx):
-    await ctx.send(f"Pong! Latência: {round(bot.latency * 1000)}ms")
+    await ctx.send(f"🏓 Pong! Latência: {round(bot.latency * 1000)}ms")
 
 @bot.event
 async def on_ready():

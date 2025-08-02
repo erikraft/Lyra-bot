@@ -130,7 +130,7 @@ class Ticket(commands.Cog):
 
         await canal.send("Mensagem do painel", view=DropdownView())
 
-    @app_commands.command(name="setup", description="Envia o painel de tickets no canal atual.")
+    @app_commands.command(name="setup", description="🎟️｜Envia o painel de tickets no canal atual.")
     @app_commands.checks.has_permissions(manage_guild=True)
     async def setup(self, interaction: Interaction) -> None:
         await interaction.response.defer(ephemeral=True)  # oculta a resposta do comando
@@ -140,7 +140,7 @@ class Ticket(commands.Cog):
             description=(
                 "❓ Nessa seção, você pode tirar suas dúvidas ou entrar em contato com a nossa equipe de suporte.\n\n"
                 "🚫 Para evitar problemas, leia as opções com atenção e lembre-se de tentar pedir ajuda nos suportes comunitários antes de abrir um ticket.\n\n"
-                "<:Discord:1144329364377448518>  | Tickets relacionados ao canal 🎮｜Vamos Jogar MINECRAFT??"
+                "<:Discord:1398071610648432722>  | Tickets relacionados a comunidade `Constelação da Lyra 🌠`"
             ),
             color=discord.Color.blurple()
         )
@@ -156,9 +156,9 @@ class Ticket(commands.Cog):
         if canal:
             await canal.send(embed=embed, view=DropdownView())
 
-        await interaction.followup.send("Painel enviado com sucesso.", ephemeral=True)
+        await interaction.followup.send("<a:AmebaRGB:1128342932336943104> Painel enviado com sucesso.", ephemeral=True)
 
-    @app_commands.command(name="fecharticket", description="Fecha o ticket atual.")
+    @app_commands.command(name="fecharticket", description="🎟️｜Fecha o ticket atual.")
     @app_commands.checks.has_permissions(manage_threads=True)
     async def fecharticket(self, interaction: Interaction) -> None:
         mod = interaction.guild.get_role(id_cargo_atendente)
@@ -166,13 +166,13 @@ class Ticket(commands.Cog):
             await interaction.response.send_message(f"O ticket foi arquivado por {interaction.user.mention}, obrigado por entrar em contato!")
             await interaction.channel.edit(archived=True, locked=True)
         else:
-            await interaction.response.send_message("Isso não pode ser feito aqui...")
+            await interaction.response.send_message("<:IconSystemMessageInteractionFail:1314237948102840444> Isso não pode ser feito aqui...")
 
-    @app_commands.command(name="ticket", description="Abra o painel de tickets em uma mensagem privada.")
+    @app_commands.command(name="ticket", description="🎟️｜Abra o painel de tickets em uma mensagem privada.")
     async def ticketcmd(self, interaction: Interaction) -> None:
         """Disponibiliza o seletor de tickets para qualquer membro, sem exigir permissões extras."""
         await interaction.response.send_message(
-            "Selecione o tipo de atendimento:",
+            "<a:AlfineteRGB1:1221238150794580089> Selecione o tipo de atendimento:",
             view=DropdownView(),
             ephemeral=True
         )

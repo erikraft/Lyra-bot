@@ -7,8 +7,8 @@ class DMCog(commands.Cog):
     def __init__(self, bot: commands.Bot) -> None:
         self.bot = bot
 
-    @app_commands.command(name="dm_user", description="Envia uma mensagem em embed para a DM de um usuário.")
-    @app_commands.describe(user="Usuário que receberá a mensagem", mensagem="Conteúdo da mensagem a ser enviada")
+    @app_commands.command(name="dm_user", description="💬｜Envia uma mensagem em embed para a DM de um usuário.")
+    @app_commands.describe(user="👤｜Usuário que receberá a mensagem", mensagem="💬｜Conteúdo da mensagem a ser enviada")
     @app_commands.checks.has_permissions(administrator=True)
     async def dm_user(self, interaction: Interaction, user: User, *, mensagem: str) -> None:
         embed = Embed(description=mensagem, color=discord.Color.black())
@@ -23,10 +23,10 @@ class DMCog(commands.Cog):
 
         try:
             await user.send(embed=embed)
-            await interaction.response.send_message(f"Mensagem enviada para {user.name}!", ephemeral=True)
+            await interaction.response.send_message(f"<:Icon_Forward:1401240479240163500> Mensagem enviada para {user.name}!", ephemeral=True)
         except discord.Forbidden:
             await interaction.response.send_message(
-                "Não consegui enviar a mensagem. O usuário pode estar com DMs fechadas.", 
+                "<:Icon_Warning:1399181171581128824>Não consegui enviar a mensagem. O usuário pode estar com DMs fechadas.", 
                 ephemeral=True
             )
         except Exception as e:
