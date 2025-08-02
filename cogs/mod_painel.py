@@ -239,11 +239,11 @@ class Mod(commands.Cog):
         )
         embed.set_thumbnail(url=usuario.display_avatar.url)
 
-        embed.add_field(name="<:Icon_Member:1401249106097082469> Usuário", value=str(usuario), inline=True)
-        embed.add_field(name="<:Icon_Blog:1401249231670349909> Apelido", value=usuario.nick or "Nenhum", inline=True)
-        embed.add_field(name="<:Icon_ID:1222927153403002931> ID", value=str(usuario.id), inline=False)
-        embed.add_field(name="<:Icon_Channel_Event:1401249482787786882> Conta criada", value=usuario.created_at.strftime('%d/%m/%Y %H:%M'), inline=True)
-        embed.add_field(name="<:Icon_Community:1314237798223450223> Entrou no servidor", value=usuario.joined_at.strftime('%d/%m/%Y %H:%M'), inline=True)
+        embed.add_field(name="👤 Usuário", value=str(usuario), inline=True)
+        embed.add_field(name="🏷️ Apelido", value=usuario.nick or "Nenhum", inline=True)
+        embed.add_field(name="🆔 ID", value=str(usuario.id), inline=False)
+        embed.add_field(name="📅 Conta criada", value=usuario.created_at.strftime('%d/%m/%Y %H:%M'), inline=True)
+        embed.add_field(name="📌 Entrou no servidor", value=usuario.joined_at.strftime('%d/%m/%Y %H:%M'), inline=True)
 
         view = ModPainel(self.bot, usuario)  # Usa self.bot ao invés de bot
         await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
