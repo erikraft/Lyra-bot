@@ -68,10 +68,22 @@ statuses = [
     "💖 Ame-se primeiro!",
     "✨ Sorria, linda!",
     "💅 Unhas on point!",
-    "🍓 Hora da vitamina!"
+    "🍓 Hora da vitamina!",
+    "🎧 Coloque sua música favorita!",
+    "📚 Hora do estudo, futura rainha!",
+    "☕ Pausa pro café e fofoca!",
+    "🧴 Skincare em dia?",
+    "👗 Vista-se para si mesma!",
+    "🩰 Postura de bailarina!",
+    "🧘 Respire fundo, você consegue!",
+    "💎 Sua luz é única!",
+    "🌈 Espalhe cores hoje!",
+    "💌 Envie amor para si mesma!",
+    "📸 Capture o momento!",
+    "🪞 Olhe no espelho e sorria!"
 ]
 
-@tasks.loop(minutes=30)
+@tasks.loop(minutes=1)
 async def status_task():
     """Altera o status do bot periodicamente."""
     await bot.change_presence(activity=discord.Game(name=random.choice(statuses)))
