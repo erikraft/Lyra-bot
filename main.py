@@ -62,15 +62,15 @@ async def load_cogs():
             try:
                 await bot.load_extension(f"cogs.{filename[:-3]}")
                 print(f"Cog {filename} carregado com sucesso!")
+            except commands.errors.ExtensionAlreadyLoaded:
+                # Caso já esteja carregado, apenas ignore para evitar erro duplicado
+                print(f"Cog {filename} já estava carregado, ignorando.")
             except Exception as e:
                 print(f"Falha ao carregar {filename}: {e}")
-                # Imprime o traceback completo para ajudar no diagnóstico
                 import traceback
                 traceback.print_exc()
 
-@bot.event
-async def on_connect():
-    await load_cogs()
+
 
 @bot.event
 async def on_message(message):
