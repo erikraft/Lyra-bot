@@ -14,18 +14,15 @@ NOMES_EMOJI = {
 }
 
 def resultado_rps(jogador: str, bot: str) -> str:
-    if jogador == bot:
-        return "🤝 Empate!"
-        
-    ganha = {
-        "🪨 Pedra": "✂️ Tesoura",
-        "✂️ Tesoura": "📄 Papel",
-        "📄 Papel": "🪨 Pedra"
-    }
+    # Gera um resultado aleatório: 0 = empate, 1 = vitória, 2 = derrota
+    resultado = random.randint(0, 2)
     
-    if ganha[jogador] == bot:
+    if resultado == 0:
+        return "🤝 Empate!"
+    elif resultado == 1:
         return "🎉 Você venceu!"
-    return "😢 Você perdeu!"
+    else:
+        return "😢 Você perdeu!"
 
 
 class RPS(commands.Cog):
