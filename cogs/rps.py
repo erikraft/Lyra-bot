@@ -34,7 +34,7 @@ class RPS(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @app_commands.command(name="rps", description="✂️｜Jogue Pedra, Papel ou Tesoura contra o bot")
+    @app_commands.command(name="rps", description="🪨｜Jogue Pedra, Papel ou Tesoura contra o bot")
     @app_commands.describe(escolha="Sua escolha: Pedra, Papel ou Tesoura")
     @app_commands.choices(escolha=[
         app_commands.Choice(name="🪨 Pedra", value="🪨 Pedra"),
@@ -42,11 +42,14 @@ class RPS(commands.Cog):
         app_commands.Choice(name="✂️ Tesoura", value="✂️ Tesoura")
     ])
     async def rps_slash(self, interaction: discord.Interaction, escolha: str):
+        # Gera uma escolha aleatória para o bot
         bot_escolha = random.choice(ESCOLHAS)
+        
+        # Obtém o resultado baseado nas escolhas
         resultado = resultado_rps(escolha, bot_escolha)
-        await interaction.response.send_message(
-            f"Você escolheu **{escolha}**. O bot escolheu **{bot_escolha}**. {resultado}"
-        )
+        
+        # Envia apenas o resultado
+        await interaction.response.send_message(resultado)
 
 
 async def setup(bot: commands.Bot):

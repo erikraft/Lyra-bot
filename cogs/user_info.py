@@ -21,7 +21,7 @@ class UserInfo(commands.Cog):
         return dt_brt.strftime("%d/%m/%Y %H:%M")
 
     # ===== Slash command =====
-    @app_commands.command(name="user_info", description="ℹ️｜Mostra informações sobre um usuário")
+    @app_commands.command(name="user_info", description="📋｜Mostra informações sobre um usuário")
     @app_commands.describe(usuario="Usuário a obter informações. Deixe vazio para você.")
     async def user_info(self, interaction: discord.Interaction, usuario: discord.Member | None = None):
         member = usuario or interaction.user  # Usa o membro fornecido ou quem chamou o comando

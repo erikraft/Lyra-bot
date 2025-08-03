@@ -9,7 +9,7 @@ class MiniJogos(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @app_commands.command(name="minijogos", description="🕹️｜Mostra uma lista de mini-jogos disponíveis")
+    @app_commands.command(name="minijogos", description="🎮｜Mostra uma lista de mini-jogos disponíveis")
     async def minijogos_slash(self, interaction: discord.Interaction):
         """Envia um embed com mini-jogos que os usuários podem jogar."""
         embed = (
