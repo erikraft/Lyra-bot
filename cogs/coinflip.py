@@ -13,7 +13,7 @@ class CoinFlip(commands.Cog):
     @app_commands.command(name="coinflip", description="🪙｜Cara ou coroa")
     async def coinflip_slash(self, interaction: discord.Interaction):
         resultado = random.choice(["Cara", "Coroa"])
-        await interaction.response.send_message(f"🪙 Deu **{resultado}**!", ephemeral=True)
+        await interaction.response.send_message(f"🪙 Deu **{resultado}**!")
 
 
 async def setup(bot: commands.Bot):

@@ -13,7 +13,7 @@ class Dado(commands.Cog):
     @app_commands.command(name="roll", description="🎲｜Joga um dado de 6 faces")
     async def roll_slash(self, interaction: discord.Interaction):
         resultado = random.randint(1, 6)
-        await interaction.response.send_message(f"🎲 Você rolou: **{resultado}**", ephemeral=True)
+        await interaction.response.send_message(f"🎲 Você rolou: **{resultado}**")
 
 
 async def setup(bot: commands.Bot):

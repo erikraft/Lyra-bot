@@ -45,8 +45,7 @@ class RPS(commands.Cog):
         bot_escolha = random.choice(ESCOLHAS)
         resultado = resultado_rps(escolha, bot_escolha)
         await interaction.response.send_message(
-            f"Você escolheu **{escolha}**. O bot escolheu **{bot_escolha}**. {resultado}",
-            ephemeral=True,
+            f"Você escolheu **{escolha}**. O bot escolheu **{bot_escolha}**. {resultado}"
         )
 
 
