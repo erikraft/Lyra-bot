@@ -128,7 +128,7 @@ class Ticket(commands.Cog):
             if msg.author == self.bot.user and msg.components:
                 return
 
-        await canal.send("Mensagem do painel", view=DropdownView())
+        await canal.send("<:Ashley_Graves:1398076882754211882> Para ver a mensagem do painel, use o comando </setup:1401029862994477169>", view=DropdownView())
 
     @app_commands.command(name="setup", description="🎟️｜Envia o painel de tickets no canal atual.")
     @app_commands.checks.has_permissions(manage_guild=True)

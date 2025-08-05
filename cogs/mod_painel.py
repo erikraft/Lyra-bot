@@ -73,7 +73,7 @@ class BanModal(ui.Modal, title="Banir Usuário"):
 
             try:
                 embed_dm = discord.Embed(
-                    title="<:IconR_ban:1314237924702945344> Você foi banido",
+                    title="🔨 Você foi banido",
                     description=f"Motivo: {motivo}",
                     color=COR_BAN
                 )
@@ -86,8 +86,8 @@ class BanModal(ui.Modal, title="Banir Usuário"):
             mod_logs = self.bot.get_channel(ID_CANAL_MOD)
             if canal_logs:
                 embed_log = discord.Embed(
-                    title="<:IconR_ban:1314237924702945344> Banimento aplicado",
-                    description=f"{self.usuario.mention} foi banido por {interaction.user.mention}",
+                    title="🔨 Banimento aplicado",
+                    description=f"<:ban:1402429018091032647> {self.usuario.mention} foi banido por {interaction.user.mention}",
                     color=COR_BAN,
                     timestamp=datetime.utcnow()
                 )
@@ -124,8 +124,8 @@ class KickModal(ui.Modal, title="Expulsar Usuário"):
 
             try:
                 embed_dm = discord.Embed(
-                    title="<:Icon_Member_Kick:1401246895107604552> Você foi expulso",
-                    description=f"Motivo: {motivo}",
+                    title="👢  Você foi expulso",
+                    description=f"<:ban:1402429018091032647> Motivo: {motivo}",
                     color=COR_KICK
                 )
                 await self.usuario.send(embed=embed_dm, view=gerar_view_apelacao())
@@ -136,8 +136,8 @@ class KickModal(ui.Modal, title="Expulsar Usuário"):
             mod_logs = self.bot.get_channel(ID_CANAL_MOD)
             if canal_logs:
                 embed_log = discord.Embed(
-                    title="<:Icon_Member_Kick:1401246895107604552> Expulsão aplicada",
-                    description=f"{self.usuario.mention} foi expulso por {interaction.user.mention}",
+                    title="👢 Expulsão aplicada",
+                    description=f"<:ban:1402429018091032647> {self.usuario.mention} foi expulso por {interaction.user.mention}",
                     color=COR_KICK,
                     timestamp=datetime.utcnow()
                 )
@@ -192,8 +192,8 @@ class MuteModal(ui.Modal, title="Mutar Usuário"):
 
             try:
                 embed_dm = discord.Embed(
-                    title="<:Icon_Timeout:1401246976921571448> Você foi silenciado",
-                    description=f"Motivo: {motivo}\nDuração: {horas} horas",
+                    title="🔇 Você foi silenciado",
+                    description=f"<:timeout:1402428995638788118> Motivo: {motivo}\nDuração: {horas} horas",
                     color=COR_MUTE
                 )
                 embed_dm.set_footer(text="Você pode apelar da decisão.")
@@ -205,8 +205,8 @@ class MuteModal(ui.Modal, title="Mutar Usuário"):
             mod_logs = self.bot.get_channel(ID_CANAL_MOD)
             if canal_logs:
                 embed_log = discord.Embed(
-                    title="<:Icon_Timeout:1401246976921571448> Timeout aplicado",
-                    description=f"{self.usuario.mention} foi silenciado por {interaction.user.mention}",
+                    title="🔇 Timeout aplicado",
+                    description=f"<:timeout:1402428995638788118> {self.usuario.mention} foi silenciado por {interaction.user.mention}",
                     color=COR_MUTE,
                     timestamp=datetime.utcnow()
                 )
