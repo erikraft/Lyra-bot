@@ -74,7 +74,7 @@ class BanModal(ui.Modal, title="Banir Usuário"):
             try:
                 embed_dm = discord.Embed(
                     title="🔨 Você foi banido",
-                    description=f"Motivo: {motivo}",
+                    description=f"<:ban:1402429018091032647> Motivo: {motivo}",
                     color=COR_BAN
                 )
                 embed_dm.set_footer(text="Adeus.")
